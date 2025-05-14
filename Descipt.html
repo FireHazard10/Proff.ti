@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bold;
+
+  }
+
+  button{
+    display: flex;
+    color: whitesmoke;
+    background-color: black;
+    border: 2xp whitesmoke solid;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+  }
+
+  section{
+    background-color: black;
+    color: white;
+  }
+  .sc1{
+    border-radius: 5px;
+    gap: 10px;
+    in
+  }
+
+
+</style>
+<body>
+  <section class="sc1" id="sc1">
+    <img src="Pictures/1326292.png" alt="Description"><h1>Title</h1><br><hr style="size: 150mm;"><p style="color:black; font-size:larger;">  Add your descriptive text here. You can insert more elements such as lists, links, or additional paragraphs.</p>
+
+  </section>
+  <section class="sc2" id="sc2">
+    <H1>Comments</H1>
+    <input type="textarea">
+    <button type="submit">Done</button>
+  </section>
+  <section class="sc3" id="sc3">
+    <div class="View">
+      <img src="Pictures/1343086.jpeg" alt="image1">
+      <img src="Pictures/1343086.jpeg" alt="image2">
+      <img src="Pictures/1343086.jpeg" alt="image3">
+      <img src="Pictures/1343086.jpeg" alt="image4">
+      <img src="Pictures/1343086.jpeg" alt="image5">
+      <img src="Pictures/1343086.jpeg" alt="image6">
+      <img src="Pictures/1343086.jpeg" alt="image7">
+    </div>
+    <div class="controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+  </section>
+  <script>
+    const images = document.querySelector('.images');
+    const descriptions = document.querySelectorAll('.description');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    let currentIndex = 0;
+  
+    function updateSlider(index) {
+      const offset = -index * 100;
+      images.style.transform = `translateX(${offset}%)`;
+      descriptions.forEach((desc, i) => {
+        desc.classList.toggle('hidden', i !== index);
+      });
+    }
+  
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + descriptions.length) % descriptions.length;
+      updateSlider(currentIndex);
+    });
+  
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % descriptions.length;
+      updateSlider(currentIndex);
+    });
+  
+    updateSlider(currentIndex);
+  </script>
+</body>
+</html>

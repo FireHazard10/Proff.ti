@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Movie Grid</title>
+    <style>
+      :root {
+        --bg-color: #f0f0f0;
+        --text-color: #000;
+        --card-bg: rgba(7, 84, 238, 0.9);
+        --link-color: rgba(7, 84, 238, 0.9);
+        --shadow-color: rgba(0, 0, 0, 0.2);
+      }
+
+      body.dark {
+        --bg-color: #121212;
+        --text-color: #fff;
+        --card-bg: #1e1e2f;
+        --link-color: #90caf9;
+        --shadow-color: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg-color);
+        color: var(--text-color);
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background: var(--bg-color);
+        /*background: white;*/
+        box-shadow: 0 0 8px var(--shadow-color);
+        /*box-shadow: 0 0 8px rgba(32, 31, 31, 0.2);*/
+      }
+
+      header a {
+        margin-right: 20px;
+        text-decoration: none;
+        font-size: 18px;
+        color: var(--link-color);
+        /*color: rgba(7, 84, 238, 0.9);*/
+        transition: 0.3s;
+      }
+
+      header a:hover {
+        color: lavender;
+      }
+
+      header h1 {
+        color: rgba(7, 84, 238, 0.9);
+        font-size: 24px;
+      }
+
+      .movie-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 10px;
+      }
+
+      .movie-card {
+        background: var(--card-bg);
+        /*background: rgba(7, 84, 238, 0.9);*/
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        color: white;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .poster img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .details {
+        padding: 10px;
+        text-align: center;
+      }
+
+      .details h3 {
+        margin: 5px 0;
+        font-size: 16px;
+      }
+
+      .details p {
+        font-size: 13px;
+        color: #e0e0e0;
+      }
+
+      .details a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .bottom-nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .nav-button {
+        background: rgba(7, 84, 238, 0.9);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .nav-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          display: flex;
+          position: relative;
+          text-align: center;
+          align-items: center;
+          justify-content: space-around;
+        }
+
+        header h1 {
+          margin-top: 10px;
+          font-size: 1.6em;
+        }
+
+        .details h3 {
+          font-size: 14px;
+        }
+
+        .details p {
+          font-size: 12px;
+        }
+
+        .nav-button {
+          font-size: 14px;
+          padding: 8px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="Proff.html">&lt; back</a>
+      <h1>🤖 Hello</h1>
+      <button
+        id="themeToggle"
+        style="
+          margin-left: auto;
+          padding: 6px 12px;
+          border: none;
+          border-radius: 5px;
+          background: #0754ee;
+          color: white;
+          cursor: pointer;
+        "
+      >
+        🌙 Dark Mode
+      </button>
+    </header>
+
+    <section id="movies">
+      <div class="movie-container">
+        <div class="movie-card">
+          <div class="poster">
+            <img src="toughened-glass-work.jpg" alt="Glass Work" />
+          </div>
+          <div class="details">
+            <h3><a href="play.html">Glass Work</a></h3>
+            <p>Anime action series.</p>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <div class="poster">
+            <img src="Proff/AdobeStock_81.jpeg" alt="Glass Work" />
+          </div>
+          <div class="details">
+            <h3>Glass Work</h3>
+            <p>Design inspiration.</p>
+          </div>
+        </div>
+
+        <!-- Repeat for other cards -->
+        <div class="movie-card">
+          <div class="poster">
+            <img src="Proff/AdobeStock_60.jpeg" alt="Glass Work" />
+          </div>
+          <div class="details">
+            <h3>Glass Work</h3>
+            <p>Short description.</p>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <div class="poster">
+            <img src="Proff/AdobeStock_58.jpeg" alt="Glass Work" />
+          </div>
+          <div class="details">
+            <h3>Glass Work</h3>
+            <p>Short description.</p>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <div class="poster">
+            <img src="Proff/AdobeStock_44.jpeg" alt="Glass Work" />
+          </div>
+          <div class="details">
+            <h3>Glass Work</h3>
+            <p>Short description.</p>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <div class="poster">
+            <img src="Proff/AdobeStock_36.jpeg" alt="Glass Work" />
+          </div>
+          <div class="details">
+            <h3>Glass Work</h3>
+            <p>Short description.</p>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <div class="poster">
+            <img src="Proff/AdobeStock_18.jpeg" alt="Glass Work" />
+          </div>
+          <div class="details">
+            <h3>Glass Work</h3>
+            <p>Short description.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-nav">
+        <button class="nav-button" id="prevBtn" disabled>Prev</button>
+        <span id="pageNumber">1</span>
+        <button class="nav-button" id="nextBtn">Next</button>
+      </div>
+    </section>
+
+    <script>
+      const toggleButton = document.getElementById("themeToggle");
+      const body = document.body;
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        body.classList.add("dark");
+        toggleButton.textContent = "☀️ Light Mode";
+      }
+
+      toggleButton.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        const isDark = body.classList.contains("dark");
+        toggleButton.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+      let currentPage = 1;
+      const totalPages = 5;
+      const pages = [
+        "page-1.html",
+        "page-2.html",
+        "page-3.html",
+        "page-4.html",
+        "page-5.html",
+      ];
+
+      const prevButton = document.getElementById("prevBtn");
+      const nextButton = document.getElementById("nextBtn");
+      const pageNumber = document.getElementById("pageNumber");
+
+      prevButton.addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          window.location.href = pages[currentPage - 1];
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          window.location.href = pages[currentPage - 1];
+        }
+      });
+
+      function checkButtons() {
+        prevButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages;
+        pageNumber.textContent = currentPage;
+      }
+
+      checkButtons();
+    </script>
+  </body>
+</html>

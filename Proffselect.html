@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background: #f0f0f0;
+    }
+    header {
+      display: flex;
+      justify-content:left;
+      text-align: center;
+      align-items: center;
+      box-shadow: 0 0 8px rgba(32, 31, 31, 0.6);
+      padding: 5px;
+    }
+
+    header a {
+        margin-right: 15px;
+      font-family: "M PLUS Rounded 1c", sans-serif;
+      font-size: 20px;
+      text-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: rgba(7, 84, 238, 0.9);
+      transition: 0.3s ease-in;
+    }
+
+    header a:hover {
+      color: lavender;
+      /*font-size: 1.2em;*/
+    }
+
+    h1 {
+      /*transform: translateX(-70%);*/
+      color: rgba(7, 84, 238, 0.9);
+    }
+
+    .movie-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .movie-card {
+      background:rgba(7, 84, 238, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      text-align: center;
+      color: white;
+      width: 100%;
+    }
+
+    .poster img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .details {
+      padding: 10px;
+    }
+
+    .details h3 {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .details p {
+      font-size: 12px;
+      color: #b0b0b0;
+    }
+
+    .movie-container .movie-card .details a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      color: #ddd;
+    }
+
+    .bottom-nav {
+        width: 100%;
+        background: transparent;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        color: #2c2c2c;
+    }
+    
+    .nav-button {
+        background: rgba(7, 84, 238, 0.9);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .nav-button:disabled {
+        background: rgba(7, 84, 238, 0.9);
+        cursor: not-allowed;
+    }
+
+    @media (max-width: 600px) {
+        
+        header h1 {
+          margin-top: 10px;
+        }
+
+        .details h3 {
+          font-size: 14px;
+        }
+
+        .details p {
+          font-size: 12px;
+        }
+
+        .nav-button {
+          font-size: 14px;
+          padding: 8px 16px;
+        }
+      }
+
+    /*@media(max-width:680px){
+      .movie-card {
+      background:rgba(7, 84, 238, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      text-align: center;
+      color: white;
+      width: 30%;
+    }
+
+    .poster img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .details {
+      padding: 10px;
+    }
+
+    .details h3 {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .details p {
+      font-size: 12px;
+      color: #b0b0b0;
+    }
+
+    .movie-container .movie-card .details a {
+      text-decoration: none;
+      color: #fff;
+    }*/
+
+    /*.bottom-nav {
+        width: 100%;
+        background: transparent;
+        padding: 10px;
+        display: flex;
+        justify-content: left;
+        gap: 20px;
+        align-items: center;
+        color: #2c2c2c;
+        margin: auto;
+    }
+    
+    .nav-button {
+        background: rgba(7, 84, 238, 0.9);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .nav-button:disabled {
+        background: rgba(7, 84, 238, 0.9);
+        cursor: not-allowed;
+    }*/
+
+    
+  </style>
+  <body>
+    <header>
+      <a href="Proff.html"> < back</a>
+      <h1>🤖Hello</h1>
+    </header>
+
+    <section id="movies">
+       
+        <div class="movie-container">
+            <div class="movie-card">
+                <div class="poster">
+                    <img src="toughened-glass-work.jpg" alt="Kaiju-No.8" loading="lazy">
+                </div>
+                <div class="details">
+                    <h3><a href="play.html">Glass Work</a></h3>
+                    <p>Anime action series.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <div class="poster">
+                    <img src="Proff/AdobeStock_81.jpeg" alt="UI UX DESIGN IDEAS" loading="lazy">
+                </div>
+                <div class="details">
+                    <h3>Glass Work</h3>
+                    <p>Design inspiration.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <div class="poster">
+                    <img src="Proff/AdobeStock_60.jpeg" alt="Movie Poster" loading="lazy">
+                </div>
+                <div class="details">
+                    <h3>Glass Work</h3>
+                    <p>Short description.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <div class="poster">
+                    <img src="Proff/AdobeStock_58.jpeg" alt="Movie Poster" loading="lazy">
+                </div>
+                <div class="details">
+                    <h3>Glass Work</h3>
+                    <p>Short description.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <div class="poster">
+                    <img src="Proff/AdobeStock_44.jpeg" alt="Movie Poster" loading="lazy">
+                </div>
+                <div class="details">
+                    <h3>Glass Work</h3>
+                    <p>Short description.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <div class="poster">
+                    <img src="Proff/AdobeStock_36.jpeg" alt="Movie Poster" loading="lazy">
+                </div>
+                <div class="details">
+                    <h3>Glass Work</h3>
+                    <p>Short description.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <div class="poster">
+                    <img src="Proff/AdobeStock_18.jpeg" alt="Movie Poster" loading="lazy">
+                </div>
+                <div class="details">
+                    <h3>Glass Work</h3>
+                    <p>Short description.</p>
+                </div>
+            </div>
+            
+            </div>
+            
+        </div>
+           
+        </div>
+        <div class="bottom-nav">
+            <button class="nav-button" id="prevBtn" disabled>Prev</button>
+            <span id="pageNumber">1</span>
+            <button class="nav-button" id="nextBtn">Next</button>
+        </div>
+    </section>
+  </body>
+  <script>
+    let currentPage = 1; // page-1.html is current
+const totalPages = 5;
+const pages = ["page-1.html","page-2.html","page-3.html","page-4.html","page-5.html"];
+
+const prevButton = document.getElementById('prevBtn');
+const nextButton = document.getElementById('nextBtn');
+const pageNumber = document.getElementById('pageNumber');
+
+prevButton.addEventListener('click', function() {
+    if (currentPage > 1) {
+        currentPage--;
+        window.location.href = pages[currentPage - 1];
+    }
+});
+
+nextButton.addEventListener('click', function() {
+    if (currentPage < totalPages) {
+        currentPage++;
+        window.location.href = pages[currentPage - 1];
+    }
+});
+
+function checkButtons() {
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === totalPages;
+    pageNumber.textContent = currentPage;
+}
+
+checkButtons();
+  </script>
+</html>

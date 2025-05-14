@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    body {
+        font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+        background: #f0f0f0;
+    }
+    header {
+  position: relative;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      align-items: center;
+      box-shadow: 0 0 8px rgba(32, 31, 31, 0.6);
+      padding: 15px;
+    }
+
+    header a {
+      text-decoration: none;
+      color: rgba(7, 84, 238, 0.9);
+      transition: 0.3s ease-in;
+    }
+
+    header a:hover {
+      color: lavender;
+      /*font-size: 1.2em;*/
+    }
+
+    /*h1 {
+        transform: translateX(-70%);
+      color: rgba(7, 84, 238, 0.9);
+    }*/
+
+    .profile-container {
+        right: 40px;
+        position: absolute;
+        display: inline-block;
+        text-align: center;
+        padding: 0;
+      }
+      
+      /* Profile icon styling */
+      .profile-icon {
+        background: url(house-under-construction-blueprints-building-project-53360048.webp)
+          no-repeat center center/cover;
+        border-radius: 50px;
+        border: 2px rgba(7, 84, 238, 0.9) solid;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transform: translateX(50%);
+        transition: transform 0.3s;
+      }
+      .profile-icon:hover {
+        transform: scale(1.1);
+      }
+      
+      /* Profile details styling */
+      .profile-details {
+        position: absolute;
+        font-family: "M PLUS Rounded 1c", sans-serif;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-75%);
+        width: 160px;
+        padding: 10px;
+        background-color: rgba(7, 84, 238, 0.9);
+        /*border: 1px solid #ddd;*/
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        font-size: 0.9rem;
+        z-index: 1;
+      }
+      
+      /* Profile details styling on hover */
+      .profile-container:hover .profile-details {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Username styling */
+      .username {
+        margin: 0;
+        font-weight: bold;
+        color: #333;
+      }
+      
+      /* Profile and logout link styling */
+      .profile-link,
+      .logout-link {
+        display: block;
+        margin-top: 8px;
+        color: #fff8f0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .profile-link:hover,
+      .logout-link:hover {
+        color: #3f4c57;
+      }
+      
+      /* Responsive styling for smaller screens */
+      @media (max-width: 600px) {
+        .profile-icon {
+          width: 40px;
+          height: 40px;
+        }
+        .profile-details {
+          width: 140px;
+          font-size: 0.8rem;
+        }
+      }
+      
+      #suggestionsList {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 5px;
+      }
+      
+      #suggestionsList li {
+        padding: 5px;
+        cursor: pointer;
+      }
+      
+      #suggestionsList li:hover {
+        background-color: #f0f0f0;
+      }
+      
+
+    .slider {
+        position: relative;
+        width: 100%;
+        max-width: 100vw;
+        height: 90vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        /*border: 2px solid #ddd;*/
+        border-radius: 0px;
+      }
+      
+      .slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .slider .description {
+        font-family: "M PLUS Rounded 1c", sans-serif;
+        font-size: 48px;
+        color: #f0f0f0;
+        position: absolute;
+        bottom: 23%;
+        left: 0%;
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        transition: opacity 0.5s;
+      }
+      
+      .slider .description.hidden {
+        opacity: 0;
+      }
+      
+      .slider .controls {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        bottom: 0;
+        /*transform: translateY(100%);*/
+      }
+      
+      .slider .controls button {
+        background: transparent;
+        backdrop-filter: blur(10px);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+      
+      .slider .controls button:hover {
+        background: rgba(255, 255, 255, 0.6);
+        color: black;
+      }
+      
+      .slider .images {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+      
+      .slider .image {
+        flex: 0 0 100%;
+        position: relative;
+      }
+      #prev {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 15px;
+        padding-left: 15px;
+        transform: translateY(-100%);
+      }
+      #next {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 15px;
+        padding-left: 15px;
+        transform: translateY(50%);
+        transform: translateX(100%);
+        margin-top: 2px;
+      }
+
+      .main{
+        width: 100%;
+        max-width: 100vw;
+        height: 500%;
+        padding: 20px;
+      }
+
+      .main h2{
+        justify-self: center;
+        text-align: justify;
+        justify-content: center;
+        width: 80%;
+        color:rgba(7, 84, 238, 0.9) ;
+        font-family:"M PLUS Rounded 1c", sans-serif ;
+        font-size: 35px;
+      }
+      .main p{
+        justify-self: center;
+        position: relative;
+        align-items: center;
+        width: 80%;
+        justify-content: center;
+        text-align: justify;
+      }
+      .tail {
+        background-color: rgba(7, 84, 238, 0.9);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 25px;
+        max-width: 1800px;
+        margin: 0 auto; /* centers the content */
+        padding: 40px 20px;
+        color: #2c2c2c;
+        text-align: left;
+        bottom: 0;
+      }
+      
+      .tail a {
+        color:#ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+      }
+      
+      .tail a:hover {
+        color:  #2c2c2c;
+      }
+
+      @media (max-width: 600px) {
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .profile-details {
+    width: 140px;
+    font-size: 0.8rem;
+  }
+}
+      @media (max-width: 1024px) {
+  header {
+    display: flex;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap:nowrap;
+    padding: 10px;
+  }
+  
+  
+
+  .ainav {
+    display: flex;
+    
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .ainav a {
+    margin: 5px;
+    font-size: 1em;
+  }
+
+  .profile-container {
+    position: static;
+    margin-top: 10px;
+  }
+
+  .slider .description {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    left: 5%;
+    bottom: 15%;
+  }
+
+  .slider::after {
+    width: 50%;
+  }
+
+  .slider .controls button {
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1150px) {
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    padding: 10px;
+    transform: none;
+  }
+
+  .poster {
+    height: 180px;
+  }
+
+  .poster img {
+    height: 180px;
+  }
+
+  .details h3 {
+    font-size: 13px;
+  }
+
+  .details p {
+    font-size: 11px;
+  }
+
+  .slider {
+    height: 35vh;
+  }
+
+  .tail {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .navi {
+    text-align: center;
+    transform: none;
+  }
+
+  .navi a {
+    font-size: 1em;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 1450px) {
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    padding: 10px;
+    transform: none;
+  }
+
+  .poster {
+    height: 180px;
+  }
+
+  .poster img {
+    height: 180px;
+  }
+
+  .details h3 {
+    font-size: 13px;
+  }
+
+  .details p {
+    font-size: 11px;
+  }
+
+  .slider {
+    height: 90vh;
+  }
+
+  .tail {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .navi {
+    text-align: center;
+    transform: none;
+  }
+
+  .navi a {
+    font-size: 1em;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 890px) {
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    padding: 10px;
+    transform: none;
+  }
+
+  .poster {
+    height: 180px;
+  }
+
+  .poster img {
+    height: 180px;
+  }
+
+  .details h3 {
+    font-size: 13px;
+  }
+
+  .details p {
+    font-size: 11px;
+  }
+
+  .slider {
+    height: 20vh;
+  }
+
+  .tail {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .navi {
+    text-align: center;
+    transform: none;
+  }
+
+  .navi a {
+    font-size: 1em;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    padding: 10px;
+    transform: none;
+  }
+
+  .poster {
+    height: 180px;
+  }
+
+  .poster img {
+    height: 180px;
+  }
+
+  .details h3 {
+    font-size: 13px;
+  }
+
+  .details p {
+    font-size: 11px;
+  }
+
+  .slider {
+    height: 90vh;
+  }
+
+  .tail {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .navi {
+    text-align: center;
+    transform: none;
+  }
+
+  .navi a {
+    font-size: 1em;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 680px) {
+  .slider {
+    height: 70vh;
+  }
+
+  .slider .description {
+    font-size: 1rem;
+    bottom: 10%;
+    left: 5%;
+    padding: 8px 12px;
+  }
+
+  .slider .controls {
+    padding: 0px;
+  }
+
+  .slider .controls button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  #next {
+    padding: 35px 10px 35px;
+  }
+
+  #prev {
+    padding: 35px 10px 35px;
+  }
+
+  .movie-card {
+    width: 100%;
+  }
+
+  .tail {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .tail a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    height: 25vh;
+  }
+
+  .slider .description {
+    font-size: 1rem;
+    bottom: 10%;
+    left: 5%;
+    padding: 8px 12px;
+  }
+
+  .slider .controls {
+    padding: 0px;
+  }
+
+  .slider .controls button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  #next {
+    padding: 35px 10px 35px;
+  }
+
+  #prev {
+    padding: 35px 10px 35px;
+  }
+
+  .movie-card {
+    width: 100%;
+  }
+
+  .tail {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .tail a {
+    font-size: 14px;
+  }
+}
+
+  </style>
+  <body>
+    <header>
+      <h1>🤖Hello</h1>
+      <a href="">🏡Home</a>
+      <a href="Store.html">🏪Store</a>
+      <a href="new.html">🏷️Design</a>
+      <a href="contact.html">📲Contact</a>
+      <div class="profile-container">
+        <div class="profile-icon">  
+        </div>
+        <div class="profile-details">
+          <p class="username">.Inc</p>
+          <a href="#" class="profile-link">Profile</a>
+          <a href="Sign-up.html" class="logout-link">Sign up</a>
+          <a href="log-in.html" class="logout-link">Login</a>
+          <a href="sign-out.html" class="logout-link">Logout</a>
+        </div>
+      </div>
+    </header>
+    <section class="veiw">
+        <br><div class="slider">
+            <div class="images">
+              <div class="image">
+                <img src="toughened-glass-work.jpg" alt="Ai.to">
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+              </div>
+              <div class="image">
+                <img src="Proff/AdobeStock_10.jpeg" alt="UI UX DESIGN IDEAS">
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+              </div>
+              <div class="image">
+                <img src="Proff/AdobeStock_11.jpeg" alt="Ai.to">
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+              </div>
+              <div class="image">
+                <img src="Proff/AdobeStock_12.jpeg" alt="Ai.to">
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+              </div>
+              <div class="image">
+                <img src="Proff/AdobeStock_13.jpeg" alt="Ai.to">
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+              </div>
+              <div class="image">
+                <img src="Proff/AdobeStock_18.jpeg" alt="Ai.to">
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+              </div>
+              <div class="image">
+                <img src="Proff/AdobeStock_36.jpeg" alt="Ai.to">
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+              </div>
+            </div>
+            <div class="controls">
+              <button id="next">&#10095;</button>
+              <button id="prev">&#10094;</button>
+            </div>
+
+    </section>
+    <section class="main">
+      <h2>Lorem ipsum</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+        
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+    </section>
+        <section class="tail">
+            <div class="cl1">
+                <br /><br /><a href="https://www.linkedin.com">Leave-a-reveiw</a>
+                <br /><br /><a href="https://www.facebook.com">Facebook</a>
+                <br /><br /><a href="https://www.instagram.com">Instagram</a>
+                <br /><br /><a href="https://www.pintrest.com">Pintrest</a>
+                <br /><br /><a href="https://www.tiktok.com">Tiktok</a>
+            </div>
+            <div class="cl2">
+                <br><br><a href="">News-update</a>
+               <br><br><a href="">Blop</a>
+                <br><br><a href="">Blap</a>
+                <br><br><a href="">Block</a>
+                <br><br><a href="">Screw</a>
+            </div>
+            <div class="cl3">
+                <br><br><a href="">General-info</a>
+                <br><br><a href="">About-Us</a>
+                <br><br><a href="">Contact</a>
+                <br><br><a href="">How-to-register</a>
+                <br><br><a href="">Other-similar-sites</a>
+            </div>
+            <div class="cl4">
+                <br><br><a href="">Top-trend</a>
+                <br><br><a href="">Vote</a>
+                <br><br><a href="">Comment</a>
+                <br><br><a href="">Like</a>
+                <br><br><a href="">Top-10's</a>
+            </div>
+        </section>
+    
+  </body>
+  <script>
+    const images = document.querySelector(".images");
+const descriptions = document.querySelectorAll(".description");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+let currentIndex = 0;
+
+function updateSlider(index) {
+  const offset = -index * 100;
+  images.style.transform = `translateX(${offset}%)`;
+  descriptions.forEach((desc, i) => {
+    desc.classList.toggle("hidden", i !== index);
+  });
+}
+
+prevButton.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + descriptions.length) % descriptions.length;
+  updateSlider(currentIndex);
+});
+
+nextButton.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % descriptions.length;
+  updateSlider(currentIndex);
+});
+
+updateSlider(currentIndex);
+  </script>
+</html>
