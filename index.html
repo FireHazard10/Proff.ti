@@ -598,6 +598,39 @@
     font-size: 14px;
   }
 }
+    .hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .ainav {
+    display: none;
+    flex-direction: column;
+    background-color: #ffc371;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .ainav.active {
+    display: flex;
+  }
+
+  .ainav a {
+    padding: 10px;
+    border-top: 1px solid #ffdd99;
+  }
+}
+
 
   </style>
   <body>
