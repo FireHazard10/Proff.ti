@@ -602,11 +602,15 @@
   </style>
   <body>
     <header>
+      <div class="hamburger" id="hamburger">&#9776;</div>
       <h1>🤖Hello</h1>
-      <a href="">🏡Home</a>
+      <div class="aninav">
+        <a href="">🏡Home</a>
       <a href="Store.html">🏪Store</a>
       <a href="new.html">🏷️Design</a>
       <a href="contact.html">📲Contact</a>
+      </div>
+      
       <div class="profile-container">
         <div class="profile-icon">  
         </div>
@@ -698,6 +702,13 @@
     
   </body>
   <script>
+ const hamburger = document.getElementById("hamburger");
+const navMenu = document.querySelector(".ainav");
+
+hamburger.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});
+
     const images = document.querySelector(".images");
 const descriptions = document.querySelectorAll(".description");
 const prevButton = document.getElementById("prev");
