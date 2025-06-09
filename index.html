@@ -17,7 +17,7 @@
         overflow-x: hidden;
         background: #f0f0f0;
     }
-    header {
+    /*header {
   position: relative;
       display: flex;
       justify-content: space-around;
@@ -35,7 +35,7 @@
 
     header a:hover {
       color: lavender;
-      /*font-size: 1.2em;*/
+      /*font-size: 1.2em;
     }
 
     /*h1 {
@@ -598,6 +598,73 @@
     font-size: 14px;
   }
 }
+
+header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-top: 15px;
+    }
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      text-decoration: none;
+      color: rgb(1, 1, 1);
+      border-radius: 25px;
+      box-shadow: 0 5px 5px rgb(0, 0, 0, 0.4);
+    }
+
+    button {
+      background: #000;
+      border-radius: 5px;
+      color: aliceblue;
+    }
+
+    li {
+      padding: 15px;
+      text-decoration: none;
+      list-style: none;
+      margin: auto;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      align-self: center;
+      transition: 200ms ease-in;
+    }
+    a:hover {
+      color: rgb(68, 68, 245);
+    }
+    .log {
+      padding: 15px 35px;
+      background-color: #000;
+      color: aliceblue;
+      border-radius: 25px;
+    }
+
+    .banner {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 40px;
+      font-family: "M PLUS Rounded 1c", sans-serif;
+    }
+    /*.home {
+      padding: 20px 35px;
+      background-color: rgb(255, 137, 157);
+      color: whitesmoke;
+      border-radius: 27px;
+    }
+    .content {
+      z-index: 2;
+      position: absolute;
+      top: 90%;
+      left: 45%;
+    }*/
+
     .hamburger {
   display: none;
   font-size: 28px;
@@ -613,7 +680,7 @@
   .ainav {
     display: none;
     flex-direction: column;
-    background-color: #ffc371;
+    background-color: #ffffff;
     width: 100%;
     position: absolute;
     top: 70px;
@@ -627,7 +694,7 @@
 
   .ainav a {
     padding: 10px;
-    border-top: 1px solid #ffdd99;
+    border-top: 1px solid #ffffff;
   }
 }
 
@@ -636,25 +703,19 @@
   <body>
     <header>
       <div class="hamburger" id="hamburger">&#9776;</div>
-      <h1>🤖Hello</h1>
+
+      <h2>Logo</h2>
       <div class="ainav">
-        <a href="">🏡Home</a>
-      <a href="Store.html">🏪Store</a>
-      <a href="new.html">🏷️Design</a>
-      <a href="contact.html">📲Contact</a>
+        <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="Store.html">Shop</a></li>
+        <li><a href="new.html">Works</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+
       </div>
       
-      <div class="profile-container">
-        <div class="profile-icon">  
-        </div>
-        <div class="profile-details">
-          <p class="username">.Inc</p>
-          <a href="#" class="profile-link">Profile</a>
-          <a href="Sign-up.html" class="logout-link">Sign up</a>
-          <a href="log-in.html" class="logout-link">Login</a>
-          <a href="sign-out.html" class="logout-link">Logout</a>
-        </div>
-      </div>
+      <a href="" class="log">Tap</a>
     </header>
     <section class="veiw">
         <br><div class="slider">
@@ -735,7 +796,7 @@
     
   </body>
   <script>
- const hamburger = document.getElementById("hamburger");
+    const hamburger = document.getElementById("hamburger");
 const navMenu = document.querySelector(".ainav");
 
 hamburger.addEventListener("click", () => {
