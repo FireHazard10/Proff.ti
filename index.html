@@ -17,131 +17,88 @@
         overflow-x: hidden;
         background: #f0f0f0;
     }
-    /*header {
+   
+     
+.pro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      align-items: center;
-      box-shadow: 0 0 8px rgba(32, 31, 31, 0.6);
-      padding: 15px;
-    }
+  z-index: 1000;
+}
 
-    header a {
-      text-decoration: none;
-      color: rgba(7, 84, 238, 0.9);
-      transition: 0.3s ease-in;
-    }
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #074eee;
+  font-family: "Savate", sans-serif;
+}
+.logo span {
+  color: #333;
+}
 
-    header a:hover {
-      color: lavender;
-      /*font-size: 1.2em;
-    }
+.nav-menu {
+  display: flex;
+  gap: 25px;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.nav-menu a:hover {
+  color: #074eee;
+}
 
-    /*h1 {
-        transform: translateX(-70%);
-      color: rgba(7, 84, 238, 0.9);
-    }*/
+.cta-button {
+  padding: 10px 20px;
+  background-color: #074eee;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.cta-button:hover {
+  background-color: #003cb3;
+}
 
-    .profile-container {
-        right: 40px;
-        position: absolute;
-        display: inline-block;
-        text-align: center;
-        padding: 0;
-      }
-      
-      /* Profile icon styling */
-      .profile-icon {
-        background: url(house-under-construction-blueprints-building-project-53360048.webp)
-          no-repeat center center/cover;
-        border-radius: 50px;
-        border: 2px rgba(7, 84, 238, 0.9) solid;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        transform: translateX(50%);
-        transition: transform 0.3s;
-      }
-      .profile-icon:hover {
-        transform: scale(1.1);
-      }
-      
-      /* Profile details styling */
-      .profile-details {
-        position: absolute;
-        font-family: "M PLUS Rounded 1c", sans-serif;
-        top: 60px;
-        left: 50%;
-        transform: translateX(-75%);
-        width: 160px;
-        padding: 10px;
-        background-color: rgba(7, 84, 238, 0.9);
-        /*border: 1px solid #ddd;*/
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        font-size: 0.9rem;
-        z-index: 1;
-      }
-      
-      /* Profile details styling on hover */
-      .profile-container:hover .profile-details {
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      /* Username styling */
-      .username {
-        margin: 0;
-        font-weight: bold;
-        color: #333;
-      }
-      
-      /* Profile and logout link styling */
-      .profile-link,
-      .logout-link {
-        display: block;
-        margin-top: 8px;
-        color: #fff8f0;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-      .profile-link:hover,
-      .logout-link:hover {
-        color: #3f4c57;
-      }
-      
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin-left: 15px;
+  position: absolute;
+  left: 0;
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}    
       /* Responsive styling for smaller screens */
       @media (max-width: 600px) {
-        .profile-icon {
-          width: 40px;
-          height: 40px;
-        }
-        .profile-details {
-          width: 140px;
-          font-size: 0.8rem;
-        }
-      }
-      
-      #suggestionsList {
-        list-style-type: none;
-        padding: 0;
-        margin-top: 5px;
-      }
-      
-      #suggestionsList li {
-        padding: 5px;
-        cursor: pointer;
-      }
-      
-      #suggestionsList li:hover {
-        background-color: #f0f0f0;
-      }
-      
-
     .slider {
         position: relative;
         width: 100%;
@@ -278,40 +235,54 @@
         color:  #2c2c2c;
       }
 
-      @media (max-width: 600px) {
-  .profile-icon {
-    width: 40px;
-    height: 40px;
-  }
-  .profile-details {
-    width: 140px;
-    font-size: 0.8rem;
-  }
-}
+     
       @media (max-width: 1024px) {
-  header {
-    display: flex;
-    position: relative;
-    text-align: center;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap:nowrap;
-    padding: 10px;
-  }
-  
-  
+  .pro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
 
-  .ainav {
-    display: flex;
-    
-    justify-content: center;
-    margin-top: 10px;
-  }
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #074eee;
+  font-family: "Savate", sans-serif;
+}
+.logo span {
+  color: #333;
+}
 
-  .ainav a {
-    margin: 5px;
-    font-size: 1em;
-  }
+.nav-menu {
+  display: flex;
+  gap: 25px;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.nav-menu a:hover {
+  color: #074eee;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  background-color: #074eee;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.cta-button:hover {
+  background-color: #003cb3;
+}
 
   .profile-container {
     position: static;
@@ -599,12 +570,6 @@
   }
 }
 
-header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      margin-top: 15px;
-    }
     ul {
       display: flex;
       flex-direction: row;
@@ -652,26 +617,7 @@ header {
       font-size: 40px;
       font-family: "M PLUS Rounded 1c", sans-serif;
     }
-    /*.home {
-      padding: 20px 35px;
-      background-color: rgb(255, 137, 157);
-      color: whitesmoke;
-      border-radius: 27px;
-    }
-    .content {
-      z-index: 2;
-      position: absolute;
-      top: 90%;
-      left: 45%;
-    }*/
-
-    .hamburger {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 10px;
-}
-
+  
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -701,22 +647,20 @@ header {
 
   </style>
   <body>
-    <header>
+    <header class="pro-header">
       <div class="hamburger" id="hamburger">&#9776;</div>
-
-      <h2>Logo</h2>
-      <div class="ainav">
-        <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="Store.html">Shop</a></li>
-        <li><a href="new.html">Works</a></li>
-        <li><a href="contact.html">contact</a></li>
-      </ul>
-
-      </div>
-      
-      <a href="" class="log">Tap</a>
-    </header>
+  <div class="logo">Proff<span>Site</span></div>
+  <nav class="nav-menu" id="navMenu">
+    <a href="#">Home</a>
+    <a href="Store.html">Shop</a>
+    <a href="new.html">Works</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <a href="#" class="cta-button">Join Now</a>
+    
+  </div>
+</header>
     <section class="veiw">
         <br><div class="slider">
             <div class="images">
@@ -796,12 +740,13 @@ header {
     
   </body>
   <script>
-    const hamburger = document.getElementById("hamburger");
-const navMenu = document.querySelector(".ainav");
+   const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
 
 hamburger.addEventListener("click", () => {
   navMenu.classList.toggle("active");
 });
+
 
     const images = document.querySelector(".images");
 const descriptions = document.querySelectorAll(".description");
